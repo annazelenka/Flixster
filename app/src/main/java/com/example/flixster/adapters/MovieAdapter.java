@@ -73,16 +73,24 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
             String imageUrl;
+            int placeholder;
 
             // if phone is in landscape, then imageUrl = backdrop image
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 imageUrl = movie.getBackdropPath();
+                //NEW
+                placeholder = R.drawable.flicks_backdrop_placeholder;
             } else {
-                //else (phone is in potrait), then imageUrl = poster image
+                //else (phone is in portrait), then imageUrl = poster image
                 imageUrl = movie.getPosterPath();
+                //NEW
+                placeholder = R.drawable.flicks_movie_placeholder;
             }
 
-            Glide.with(context).load(imageUrl).into(ivPoster);
+            //Glide.with(context).load(imageUrl).into(ivPoster);
+            //NEW
+            Glide.with(context).load(imageUrl).placeholder(placeholder).error(R.drawable.not_found).into(ivPoster);
+
         }
     }
 }
