@@ -5,10 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MovieDetailsActivity">
+    tools:context=".MovieDetailsActivity"
+    android:background="@color/colorNavyBlue">
 
     <TextView
         android:id="@+id/tvTitle"
+        android:textStyle="bold|italic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -22,7 +24,8 @@
         android:layout_marginEnd="-3dp"
         android:layout_marginRight="-3dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:text="Movie Title" />
+        tools:text="Movie Title"
+        android:textColor="@color/colorWhite"/>
 
     <RatingBar
         android:id="@+id/rbVoteAverage"
@@ -36,7 +39,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
         android:numStars="5"
-        android:stepSize="0.5" />
+        android:stepSize="0.5"
+        android:textColor="@color/colorWhite"/>
 
     <TextView
         android:id="@+id/tvOverview"
@@ -52,5 +56,28 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/colorWhite"/>
+
+    <TextView
+        android:id="@+id/tvLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rbVoteAverage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="TextView"
+        android:textColor="@color/colorWhite"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    <TextView
+        android:id="@+id/tvFamilyFriendly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvLanguage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="TextView"
+        android:textColor="@color/colorWhite"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 </RelativeLayout>

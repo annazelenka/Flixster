@@ -18,6 +18,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
     //the view objects
     TextView tvTitle;
     TextView tvOverview;
+    TextView tvFamilyFriendly;
+    TextView tvLanguage;
     RatingBar rbVoteAverage;
 
     @Override
@@ -29,14 +31,19 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvOverview = (TextView) findViewById(R.id.tvOverview);
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
+        tvFamilyFriendly = (TextView) findViewById(R.id.tvFamilyFriendly);
+        tvLanguage = (TextView) findViewById(R.id.tvLanguage);
 
         // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
         Log.d("MovieDetailsActivity", String.format("Showing details for '%s'", movie.getTitle()));
 
-        // set the title and overview
+        // set the title, overview, language, and family friendly text views
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
+        String tvFamilyFriendlyText = movie.getAdultMovie() ? "NOT Family-Friendly" : "Family-Friendly";
+        tvFamilyFriendly.setText(tvFamilyFriendlyText);
+        tvLanguage.setText(movie.getOriginalLanguage());
 
         // vote average is 0..10, convert to 0..5 by dividing by 2
         float voteAverage = movie.getVoteAverage().floatValue();

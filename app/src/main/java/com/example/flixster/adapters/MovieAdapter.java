@@ -22,6 +22,8 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
     Context context;
@@ -92,9 +94,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 placeholder = R.drawable.flicks_movie_placeholder;
             }
 
-            // Glide.with(context).load(imageUrl).into(ivPoster);
-            // NEW
-            Glide.with(context).load(imageUrl).placeholder(placeholder).error(R.drawable.not_found).into(ivPoster);
+            int radius = 100;
+            int margin = 0;
+
+            Glide.with(context)
+                    .load(imageUrl)
+                    .placeholder(placeholder)
+                    //.transform(new RoundedCornersTransformation(radius, margin))
+                    .error(R.drawable.not_found)
+                    .into(ivPoster);
 
         }
 
