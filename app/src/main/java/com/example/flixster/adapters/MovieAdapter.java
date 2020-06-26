@@ -94,13 +94,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 placeholder = R.drawable.flicks_movie_placeholder;
             }
 
-            int radius = 100;
-            int margin = 0;
+            int radius = 30;
+            int margin = 10;
 
             Glide.with(context)
                     .load(imageUrl)
                     .placeholder(placeholder)
-                    //.transform(new RoundedCornersTransformation(radius, margin))
+                    .transform(new RoundedCornersTransformation(radius, margin))
                     .error(R.drawable.not_found)
                     .into(ivPoster);
 

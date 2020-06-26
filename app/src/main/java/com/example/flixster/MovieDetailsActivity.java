@@ -20,6 +20,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView tvOverview;
     TextView tvFamilyFriendly;
     TextView tvLanguage;
+    TextView tvPopularity;
     RatingBar rbVoteAverage;
 
     @Override
@@ -33,6 +34,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
         tvFamilyFriendly = (TextView) findViewById(R.id.tvFamilyFriendly);
         tvLanguage = (TextView) findViewById(R.id.tvLanguage);
+        tvPopularity = (TextView) findViewById(R.id.tvPopularity);
 
         // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
@@ -44,9 +46,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
         String tvFamilyFriendlyText = movie.getAdultMovie() ? "NOT Family-Friendly" : "Family-Friendly";
         tvFamilyFriendly.setText(tvFamilyFriendlyText);
         tvLanguage.setText(movie.getOriginalLanguage());
+        tvPopularity.setText("Popularity: " + movie.getPopularity());
 
         // vote average is 0..10, convert to 0..5 by dividing by 2
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
+
+
     }
 }

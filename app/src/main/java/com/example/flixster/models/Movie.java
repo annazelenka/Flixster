@@ -19,9 +19,11 @@ public class Movie {
     String posterPath;
     String title;
     String overview;
+    String popularity;
     Double voteAverage;
     Boolean isAdultMovie;
     String originalLanguage;
+    Integer id;
 
     Map<String, String> languageAbbreviationMap;
 
@@ -44,6 +46,9 @@ public class Movie {
         voteAverage = jsonObject.getDouble("vote_average"); //instead of movie.getDouble
         isAdultMovie = jsonObject.getBoolean("adult");
         originalLanguage = languageAbbreviationMap.get(jsonObject.getString("original_language"));
+        popularity = String.valueOf(jsonObject.getDouble("popularity"));
+        id = jsonObject.getInt("id");
+
     }
 
     public static List<Movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException {
@@ -82,5 +87,13 @@ public class Movie {
 
     public String getOriginalLanguage() {
         return originalLanguage;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getPopularity() {
+        return popularity;
     }
 }
