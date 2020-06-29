@@ -12,7 +12,7 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
 public class MovieTrailerActivity extends YouTubeBaseActivity {
-    public static final String API_KEY = "AIzaSyAYKr6vwTYmkSApvnkqKzW02hf0LTzu2oE";
+    public static final String API_KEY = "";
     public String movieId;
     public String URL;
     Movie movie;
